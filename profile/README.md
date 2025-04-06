@@ -9,7 +9,7 @@ Equipe:
 - [Ana Laura Manfron Dias](https://github.com/analauradias)
 - [Isabelli Luisa Rosa](https://github.com/isabellirosa)
 - [Júlia Fuck](https://github.com/fujulia)
-- [Isabelli Luisa Rosa](https://github.com/rafaelabarbieric)
+- [Rafaela Barbieri da Cruz](https://github.com/rafaelabarbieric)
   
   
 Links do projeto:
