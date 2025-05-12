@@ -59,6 +59,165 @@ Para facilitar o gerenciamento, será criada uma página de administração, ond
 
 O software tem como foco **automatizar** o processo de venda dos produtos da empresa Santa Dallah. Ele irá apresentar **dois níveis de usuários, cliente e administrador**, o usuário administrador tem acesso as páginas de administração do sistema e as páginas de venda, sendo assim possui acesso a todo o sistema, e o usuário cliente possui acesso apenas as páginas de venda. **Os usuários administradores são os donos da empresa e os usuários clientes são as pessoas no geral que usarem o sistema**. Nas páginas de administração será possível **adicionar, editar e excluir os produtos vendidos pela empresa, além de gerenciar os clientes e os pedidos**. Já nas páginas de venda será possível **visualizar, comprar e curtir produtos, comentar sobre os produtos, se cadastrar e realizar login, montar seu proprio bolo por meio de um formulário e mandar mensagens para a empresa**. 
 
+# 4. Modelagem de Dados
+
+![Modelagem](img/modelagem_pi.png "Modelagem de dados")
+
+
+# 5. Regras de negócio
+
+- **RN001 - Cadastro de Cliente:** Para realizar pedidos, o cliente deve estar cadastrado no site.
+- **RN002 - Solicitação de pedido:** Para submeter um pedido é necessário identificar se ele está sendo realizado com, no mínimo, dois dias de antecedência ao evento.
+- **RN003 - Pedidos de brigadeiro:** Para pedidos de brigadeiros é necessário que sejam solicitadas, no mínimo, 25 unidades.
+- **RN004 – Inserir produtos no carrinho:** Para inserir um produto no carrinho, é necessário que o produto esteja cadastrado no sistema e que a quantidade seja acima de zero.
+- **RN005 - Métodos de pagamento:** Para realizar o pagamento, o cliente deve selecionar uma das opções de método de pagamento, sendo elas: “Cartão de crédito” e ”Pix”.
+- **RN006 - Cálculo do frete:** Para calcular o valor do frete deve-se levar em consideração a distância (em quilômetros) e o horário em que a entrega deverá ser feita, já que em horas em que o tráfego é mais demorado, a entrega irá levar mais tempo para ser concluída.
+- **RN007 - Confirmação do pedido:** Para se confirmar um pedido, é necessário que metade do valor dele seja pago antes de iniciar a preparação.
+# 6. Requisitos funcionais
+
+**Entradas:**
+
+- **RF001 - Cadastro de usuário:** tem como propósito criar uma conta para que o usuário possa realizar ações no site. O usuário pode ser cadastrado como cliente ou como administrador. 
+  - **Dados necessários:** Email, senha, tipo de usuário, código do usuário.
+  - **Usuários:** todos os níveis de usuário.
+
+- **RF002 - Cadastro de categoria:** tem como propósito cadastrar as categorias que serão atribuídas a cada produto da loja.
+  - **Dados necessários:** Código da categoria,nome, descrição.
+  - **Usuários:** Somente administrador.
+
+- **RF003 - Cadastro de produto:** tem como propósito cadastrar os produtos vendidos pela loja.
+  - **Dados necessários:** Código do produto, categoria, nome, descrição, validade, preço, quantidade, se é especial e fotos. Se o produto for um bolo é necessario cadastar o tamanho, a massa e o recheio, se for brigadeiros é necessario o sabor e para torta tamanho e tipo da torta.
+  - **Usuários:**  Somente administrador.
+
+- **RF004 - Cadastro de pedido:** tem como propósito cadastrar um pedido feito por um usuário.
+  - **Dados necessários:** Código do pedido, produtos, cliente, data, forma de retirada, horário e valor.
+  - **Usuários:** Todos os níveis de usuários.
+
+- **RF005 - Cadastro de foto:** tem como propósito cadastrar uma foto referente a um produto vendido pela empresa. 
+  - **Dados necessários:** Código da foto, nome, link.
+  - **Usuários:**  Somente administrador.
+
+- **RF006 - Cadastro de orçamento:** tem como propósito cadastrar orçamentos realizados por usuários clientes.
+  - **Dados necessários:** Código do orçamento, cliente, data, quantidade de pessoas, local, considerações e foto.
+  - **Usuários:** Todos os níveis de usuário.
+
+- **RF007 - Cadastro de avaliação:** tem como propósito cadastrar avaliações feitas por usuários clientes.
+  - **Dados necessários:** Código da avaliação, cliente, produto, descrição, nota, foto, data.
+  - **Usuários:** Cliente.
+
+- **RF008 - Entrada de recursos financeiros:** tem como propósito registrar os valores monetários recebidos pela empresa
+  - **Dados necessários:** Valor, data, descrição. 
+  - **Usuários:** Somente administrador.
+
+**Processos:**
+
+- **RF009 - Autenticação de usuário:** tem como propósito identificar se os dados inseridos no login estão cadastrados em um usuário no banco de dados e se sim identifica o tipo de usuário e o direciona para a página principal de seu perfil de acesso. 
+  - **Dados necessários:**Email, senha, tipo de usuário.
+  - **Usuários:** Todos os níveis de usuário.
+ 
+- **RF010 - Edição de usuário:** tem como propósito alterar os dados de um usuário.
+  - **Dados necessários:** Dado(s) que o usuário deseja mudar (podendo ser senha, nome, email, endereço ou telefone).
+  - **Usuários:** Todos os níveis de usuário.
+
+- **RF011 - Edição de produto:** tem como propósito alterar os dados de um determinado produto.
+  - **Dados necessários:** Dado(s) que se deseja mudar no produto ( podendo ser categoria, nome, descrição, validade, quantidade, preço, se é especial ou foto).
+  - **Usuários:** Somente administrador.
+
+- **RF012 - Edição de avaliação:** tem como propósito alterar os dados de uma determinada avaliação.
+  - **Dados necessários:** Dado(s) que se deseja mudar na avaliação ( podendo ser  descrição, nota ou foto).
+  - **Usuários:** Cliente.
+
+- **RF013 - Edição de pedido:** tem como propósito alterar os dados de um determinado pedido.
+  - **Dados necessários:** Dado(s) que se deseja mudar no pedido (  produtos, data, horário ou forma de retirada).
+  - **Usuários:** Todos os níveis de usuários.
+
+- **RF014 - Edição de categoria:** tem como propósito alterar os dados de uma determinada categoria. 
+  - **Dados necessários:** Dado(s) que se deseja mudar na categoria (nome ou descrição).
+  - **Usuários:** Somente administrador.
+
+- **RF015 - Edição de orçamento:** tem como propósito alterar os dados de um determinado orçamento.
+  - **Dados necessários:** Dado(s) que se deseja mudar no orçamento(data, quantidade de pessoas, local, considerações ou foto).
+  - **Usuários:** Todos os níveis de usuários.
+
+- **RF016 - Edição de foto:** tem como propósito alterar os dados de uma determinada foto.
+  - **Dados necessários:** Dado(s) que se deseja mudar na foto (nome ou link).
+  - **Usuários:** Somente administrador.
+
+- **RF017 - Exclusão de usuário:** tem como propósito excluir um usuário. 
+  - **Dados necessários:** id do usuário. 
+  - **Usuários:** Somente administrador.
+
+- **RF018 - Exclusão de produto:** tem como propósito excluir um produto.
+  - **Dados necessários:** id do produto.
+  - **Usuários:** Somente administrador.
+
+- **RF019 - Exclusão de avaliação:** tem como propósito excluir uma avaliação.
+  - **Dados necessários:** id da avaliação.
+  - **Usuários:**  Todos os níveis de usuários.
+
+- **RF020 - Exclusão de pedido:** tem como propósito excluir um pedido.
+  - **Dados necessários:** id do pedido.
+  - **Usuários:**  Todos os níveis de usuários.
+
+- **RF021 - Exclusão de categoria:** tem como propósito excluir uma categoria.
+  - **Dados necessários:** id da categoria.
+  - **Usuários:** Somente administrador.
+
+- **RF022 - Exclusão de orçamento:** tem como propósito excluir um orçamento.
+  - **Dados necessários:** id do orçamento.
+  - **Usuários:** Somente administrador.
+
+- **RF023 - Exclusão de foto:** tem como propósito excluir uma foto.
+  - **Dados necessários:** id da foto.
+  - **Usuários:** Somente administrador.
+
+- **RF024 - Cálculo de frete:** tem como propósito calcular o preço da entrega até a casa do cliente. 
+  - **Dados necessários:** Cep do usuário.
+  - **Usuários:** Todos os níveis de usuários.
+
+- **RF025 - Pagamento:** tem como propósito fazer com que o cliente pague o produto que comprou.
+  - **Dados necessários:** Valor, método de pagamento.
+  - **Usuários:** Usuários clientes. 
+
+- **RF026 - Enviar mensagem:** tem como propósito fazer com que o usuário cliente consiga mandar emails para a empresa.
+  - **Dados necessários:** Remetente, destinatário, assunto e mensagem. 
+  - **Usuários:** Todos os níveis de usuários.
+
+- **RF027 - Cálculo de saldo:** tem como propósito calcular a diferença entre o dinheiro que entra e o dinheiro que sai da empresa.  
+  - **Dados necessários:** Saída e entrada de recursos financeiros.
+  - **Usuários:** Somente administrador.
+
+**Saídas:**
+
+- **RF028 - Relatório de produtos mais bem avaliados:** têm como propósito listar os produtos com as maiores notas de avaliação.  
+  - **Dados necessários:** Produtos e avaliações. 
+  - **Usuários:** Somente administrador.
+
+- **RF029 - Relatório de pedidos por mês:** tem como propósito listar os pedidos que foram feitos em determinado mês e mostrar o total de pedidos feitos.  
+  - **Dados necessários:** Pedidos. 
+  - **Usuários:** Somente administrador.
+
+- **RF030 - Relatório de clientes frequentes:** tem como propósito listar os clientes que realizam mais pedidos na empresa.  
+  - **Dados necessários:** Usuários do tipo cliente e pedidos. 
+  - **Usuários:** Somente administrador.
+
+- **RF031 - Saída de recursos financeiros:** tem como propósito registrar os valores monetários gastos pela empresa.
+  - **Dados necessários:** Valor, data, descrição.
+  - **Usuários:** Somente administrador.
 
 
 
+# 7. Requisitos não funcionais
+
+
+- **RNF001 - Tecnologia FrontEnd:** O sistema deve ter seu frontend desenvolvido em VueJs.
+- **RNF002 - Tecnologia BackEnd:** O sistema deve ter seu backend desenvolvido em Django Rest Framework.
+- **RNF003 - Design:** O sistema deve ter suas telas prototipadas no Figma.
+- **RNF004 - Ambiente:** O sistema deve ser desenvolvido para ambiente web.
+- **RNF005 - Autenticação:** O sistema deve ter sua autenticação feita com o passager.
+- **RNF006 - Responsividade:** O sistema deve ser desenvolvido para desktop, tablet e celular.
+- **RN007- Ambiente de Desenvolvimento Integrado:** Para criação do sistema, será utilizado o editor de texto Visual Studio Code.
+
+# 8. Diagrama de Caso de Uso
+
+![Diagrama de caso de uso](img/diagrama.png "Diagrama de caso de uso")
