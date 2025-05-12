@@ -1,4 +1,4 @@
-# Projeto Santa Dallah
+# Projeto Santa Dallah :cake:
 
 Esse projeto tem o propósito de desenvolver um sistema para uma empresa de confeitaria de Joinville chamada Santa Dallah. O projeto tem como objetivo exibir o catálogo de produtos da empresa, vender os produtos e oferecer para o usuário uma interface onde ele pode personalizar seu pedido.
 
@@ -9,7 +9,7 @@ Equipe:
 - [Ana Laura Manfron Dias](https://github.com/analauradias)
 - [Isabelli Luisa Rosa](https://github.com/isabellirosa)
 - [Júlia Fuck](https://github.com/fujulia)
-- [Isabelli Luisa Rosa](https://github.com/rafaelabarbieric)
+- [Rafaela Barbieri da Cruz](https://github.com/rafaelabarbieric)
   
   
 Links do projeto:
