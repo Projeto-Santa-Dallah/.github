@@ -15,8 +15,8 @@ Equipe:
 Links do projeto:
 
 -   [Documentação (esse documento)](https://github.com/fujulia/Projeto-Integrador)
--   Backend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_BackEnd) e [Publicação](https://pi-backend.herokuapp.com/)
--   Frontend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_FrontEnd) e [Publicação](https://pi-frontend.herokuapp.com/)
+-   Backend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_BackEnd) e [Publicação](https://santadallah-backend.onrender.com/api)
+-   Frontend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_FrontEnd) e [Publicação](https://santa-dallah-front-end-v445.vercel.app/)
   
   
 
