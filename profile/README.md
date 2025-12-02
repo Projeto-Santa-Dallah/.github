@@ -16,7 +16,7 @@ Links do projeto:
 
 -   [Documentação (esse documento)](https://github.com/fujulia/Projeto-Integrador)
 -   Backend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_BackEnd) e [Publicação](https://santadallah-backend.onrender.com/api)
--   Frontend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_FrontEnd) e [Publicação](https://santa-dallah-front-end-qyca.vercel.app/)
+-   Frontend: [Repositório](https://github.com/Projeto-Santa-Dallah/SantaDallah_FrontEnd) e [Publicação](https://santa-dallah-front-end-tjhf.vercel.app/)
   
   
 
